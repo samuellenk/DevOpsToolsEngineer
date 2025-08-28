@@ -1,0 +1,42 @@
+version: "3.9"   # use the latest stable version you have
+
+services:
+  db:
+    image: mysql:8
+    container_name: counter-db
+    restart: unless-stopped
+    env_file: .env               # pulls in MYSQL_* vars
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    ports:
+      - "${MYSQL_PORT}:3306"      # optional – only for local debugging
+    volumes:
+      - db_data:/var/lib/mysql    # persist data across restarts
+      - ./db/init:/docker-entrypoint-initdb.d   # init script runs only once
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: ./web
+    container_name: counter-web
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"                 # expose on host http://localhost:8080
+    environment:
+      MYSQL_HOST: db
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    restart: unless-stopped
+
+volumes:
+  db_data:                        # docker‑managed named volume

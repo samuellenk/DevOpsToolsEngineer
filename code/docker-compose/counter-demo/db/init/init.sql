@@ -1,0 +1,13 @@
+CREATE DATABASE IF NOT EXISTS counter_db;
+
+USE counter_db;
+
+CREATE TABLE IF NOT EXISTS counter (
+    id   TINYINT PRIMARY KEY DEFAULT 1,
+    cnt  BIGINT NOT NULL DEFAULT 0
+) ENGINE=InnoDB;
+
+INSERT INTO counter (id, cnt)
+    SELECT 1, 0
+    FROM DUAL
+    WHERE NOT EXISTS (SELECT 1 FROM counter WHERE id = 1);
