@@ -17,7 +17,7 @@ This is what you'll need for the example:
   - [minikube installation](https://kubernetes.io/docs/tasks/tools/#minikube)
 3. create **bash completion for minikube**: `minikube completion bash | sudo tee /usr/share/bash-completion/completions/minikube`
 
-Either **verify** you have the components **or install** them, if necessary.
+Finally, **verify** that you have the components **and install** them, if necessary.
 
 ## Minikube Example: Step‑by‑step
 
