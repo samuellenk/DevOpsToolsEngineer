@@ -15,7 +15,7 @@ docker build -t my-static-site .
 ```bash
 docker run -d \
   --name my-site \
-  -p 8080:80 \   # host:container port mapping
+  -p 8080:80 \
   my-static-site
 ```
 
