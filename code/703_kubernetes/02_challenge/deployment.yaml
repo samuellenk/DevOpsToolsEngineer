@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: challenge-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: challenge-app
+  template:
+    metadata:
+      labels:
+        app: challenge-app
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - name: storage
+          mountPath: /usr/share/nginx/html
+        env:
+        - name: ENV
+          valueFrom:
+            configMapKeyRef:
+              name: challenge-config
+              key: ENV
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: challenge-secret
+              key: PASSWORD
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: challenge-pvc

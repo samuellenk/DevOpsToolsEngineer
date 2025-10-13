@@ -1,6 +1,6 @@
 # Docker Compose exammple
 
-This folder contains a simple `dooker compose` application.
+This folder contains a simple `docker compose` application.
 
 You can run it using:
 

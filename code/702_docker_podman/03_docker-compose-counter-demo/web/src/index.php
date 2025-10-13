@@ -6,28 +6,28 @@
  * supplied by docker‑compose.
  * ------------------------------------------------------------- */
 
-// ----- 1⃣  Read env vars -------------------------------------------------
+// ----- 1 Read env vars -------------------------------------------------
 $host = getenv('MYSQL_HOST') ?: 'db';
 $port = getenv('MYSQL_PORT') ?: 3306;
 $db   = getenv('MYSQL_DATABASE') ?: 'counter_db';
 $user = getenv('MYSQL_USER') ?: 'counter_user';
 $pass = getenv('MYSQL_PASSWORD') ?: 'counter_pass';
 
-// ----- 2⃣  Connect -------------------------------------------------------
+// ----- 2 Connect -------------------------------------------------------
 $mysqli = new mysqli($host, $user, $pass, $db, $port);
 if ($mysqli->connect_error) {
     die("<h1>❌ DB connection failed:</h1><p>{$mysqli->connect_error}</p>");
 }
 
-// ----- 3⃣  Increment the counter -----------------------------------------
+// ----- 3 Increment the counter -----------------------------------------
 $mysqli->query("UPDATE counter SET cnt = cnt + 1 WHERE id = 1");
 
-// ----- 4⃣  Fetch the new value -------------------------------------------
+// ----- 4 Fetch the new value -------------------------------------------
 $res = $mysqli->query("SELECT cnt FROM counter WHERE id = 1");
 $row = $res->fetch_assoc();
 $count = $row['cnt'];
 
-// ----- 5⃣  Render HTML ----------------------------------------------------
+// ----- 5 Render HTML ----------------------------------------------------
 ?>
 <!DOCTYPE html>
 <html lang="en">
