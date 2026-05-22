@@ -6,9 +6,9 @@ It provides a [Postgres](https://www.postgresql.org/) container using this volum
 
 You can use the database in [DBeaver](https://dbeaver.io/).
 
-When you open the database client you first create a new connection. The credentilas can be found in `.env`.
+When you open the database client you first create a new connection. The credentials can be found in `.env`.
 
-## Runing the example
+## Running the example
 
 1. Create the volume:
 

@@ -1,8 +1,8 @@
 # Docker Static Web Page example
 
-This folder serves a simple `index.html` in an [nginx](https://hub.docker.com/_/nginx) container.
+This folder serves a simple `index.html` in a [nginx](https://hub.docker.com/_/nginx) container.
 
-## Runing the example
+## Running the example
 
 1. Build the container:
 

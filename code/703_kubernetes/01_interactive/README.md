@@ -44,9 +44,9 @@ kubectl config current-context
 
 ### Checkpoint
 
-- [ ] 1. You can use Tab-completion for `minikube` and `kubectl`
-- [ ] 2. You've got a running Kubernetes cluster
-- [ ] 3. You can use `kubectl`
+- [ ] You can use Tab-completion for `minikube` and `kubectl`
+- [ ] You've got a running Kubernetes cluster
+- [ ] You can use `kubectl`
 
 ## Step 1: Kubernetes Core Components
 
@@ -67,9 +67,9 @@ kubectl get componentstatuses
 
 ### Checkpoint
 
-- [ ] 1. You know what API server, etcd, scheduler, and controllers do
-- [ ] 2. You can explain their roles
-- [ ] 3. You can draw an image showing their dependencies
+- [ ] You know what API server, etcd, scheduler, and controllers do
+- [ ] You can explain their roles
+- [ ] You can draw an image showing their dependencies
 
 ## Step 2: Create Your First Pod
 

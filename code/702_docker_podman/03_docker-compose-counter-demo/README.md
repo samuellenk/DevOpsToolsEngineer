@@ -1,4 +1,4 @@
-# Docker Compose exammple
+# Docker Compose example
 
 This folder contains a simple `docker compose` application.
 
