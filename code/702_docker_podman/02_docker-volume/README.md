@@ -28,6 +28,9 @@ podman volume create pgdata
 podman compose up -d
 # another way of starting the container is:
 podman run -d --name pg -e POSTGRES_PASSWORD=postgres -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres:latest
+# other examples where a vloume is used:
+docker run -d -p 8080:80 --name my-website --mount type=bind,src=/home/tux/quickstart/public,dst=/usr/local/apache2/htdocs httpd
+docker run -d -p 8080:80 --name my-website --volume /home/tux/quickstart/public:/usr/local/apache2/htdocs httpd
 ```
 
 > `podman`in the commands can be swapped for `docker` :smile:

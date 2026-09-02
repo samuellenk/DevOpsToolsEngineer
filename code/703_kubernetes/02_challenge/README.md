@@ -43,7 +43,7 @@ minikube addons enable ingress
 
 2. Add hosts entry on your docker host for testing:
 ```bash
-echo '127.0.0.1 myapp.local' | sudo tee -a /etc/hosts
+echo "$(minikube ip) myapp.local" | sudo tee -a /etc/hosts
 ```
 
 ### Adjust and add definitions

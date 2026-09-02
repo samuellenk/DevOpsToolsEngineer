@@ -8,6 +8,10 @@ You need to configure Prometheus to scrape metrics from a local `node_exporter`,
 
 To complete this task, you should set up and run Prometheus as described in the [Getting started](https://prometheus.io/docs/prometheus/latest/getting_started/) section.
 
+# Getting Started with PromQL
+
+You can get up and running with PromQL using [this document](/code/704_2_prometheus/promQL_starter.md).
+
 # Task 1: Basic Configuration (`prometheus.yml`)
 
 Configure Prometheus to scrape two targets:
